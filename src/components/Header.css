@@ -1,0 +1,70 @@
+.headerAbove {
+  height: 50vh;
+  width: 100vw;
+  background-image: linear-gradient(90deg, blue, rgb(50, 233, 227));
+  position: absolute;
+  z-index: -1;
+  margin-bottom: 0;
+}
+
+.header {
+  height: 10vw;
+  width: 84vw;
+  background-image: linear-gradient(90deg, blue, rgb(50, 233, 227));
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 2vh 8vw;
+  box-shadow: -1px 4px 20px -6px rgba(0, 0, 0, 0.75);
+  z-index: 1;
+  position: relative;
+}
+
+.headerContact {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  color: white;
+}
+.headerContact:hover {
+  color: black;
+}
+.headerContact_icon {
+  margin-left: 1vw;
+}
+
+.headerContact_number {
+  text-decoration: none;
+  color: white;
+  font-weight: 700;
+}
+
+.headerContact_number:hover {
+  color: black;
+}
+
+.headerLogo {
+  width: 25vw;
+  max-width: 180px;
+}
+
+.headerMenu {
+  color: white;
+}
+
+.listItem {
+  justify-content: space-between;
+}
+
+.listItemText {
+  float: inline-start;
+  font-weight: 900;
+  font-size: 22px;
+}
+
+.drawerBox {
+  text-decoration: none;
+  color: black;
+  font-size: 22px;
+}

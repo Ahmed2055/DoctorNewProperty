@@ -1,0 +1,117 @@
+.property {
+  border: 1px solid lightgray;
+  width: 86vw;
+  height: fit-content;
+  max-width: 460px;
+  margin: 5vh auto;
+}
+.propertyLink {
+  text-decoration: none;
+  color: black;
+}
+.propertyPicDiv {
+  width: 86vw;
+  max-width: 460px;
+  height: 50vw;
+  max-height: 355px;
+}
+.propertyPic {
+  width: 86vw;
+  max-width: 460px;
+}
+.picCountDiv {
+  background-color: rgba(0, 0, 0, 0.75);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 2px 4px;
+  width: 38px;
+  position: absolute;
+}
+.picCount {
+  color: white;
+  font-size: 14px;
+}
+.picCount__icon {
+  margin-right: 2px;
+}
+.propertyDetails {
+  width: 73nvw;
+  max-width: 460px;
+  height: fit-content;
+  display: flex;
+  flex-direction: column;
+  padding: 1vw 3px;
+  background-image: linear-gradient(
+    90deg,
+    rgb(235, 233, 233),
+    rgb(245, 245, 245)
+  );
+}
+.propertyDescription {
+  font-size: 13px;
+  font-family: "Almarai", sans-serif;
+  margin-right: 2vw;
+}
+.propertyPayment {
+  float: left;
+  display: flex;
+  flex-direction: row;
+  margin: 0.5vw 20px;
+  align-items: center;
+}
+.propertyPayment,
+.propertyPrice,
+.propertyCurrency {
+  font-size: 14px;
+  color: rgb(51, 51, 51);
+}
+.propertyPrice,
+.propertyCurrency {
+  margin: 0 5px;
+  color: orange;
+}
+.propertyPrice {
+  font-weight: 600;
+  margin-top: 2px;
+  font-weight: 700;
+}
+.propertyMoreDetails {
+  font-size: 13px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  color: rgb(94, 94, 94);
+  margin-right: 2vw;
+  justify-content: space-evenly;
+}
+.propertyType,
+.roomCount,
+.bathRoomCount,
+.propertyDetails__icon {
+}
+.bedrooms {
+  position: relative;
+  top: 1px;
+}
+.bathrooms {
+  position: relative;
+  top: 0px;
+}
+.roomCount,
+.bathRoomCount,
+.propertySpaceCount {
+  margin: 0 2vw 0 0;
+  font-weight: 600;
+}
+.propertyCity {
+  margin: 0 2vw 0 0;
+  min-width: 88px;
+}
+.propertySpaceCount {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  margin-left: 1vw;
+  min-width: 80px;
+}

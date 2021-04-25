@@ -1,0 +1,7 @@
+.residential{
+  flex: 1;
+  background-image: linear-gradient(90deg, blue, rgb(50, 233, 227));
+  margin-top: 0;
+  position: absolute;
+  width: 100vw;
+}
