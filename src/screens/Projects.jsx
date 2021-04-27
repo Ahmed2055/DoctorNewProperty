@@ -240,46 +240,46 @@ function Projects() {
                 {activeArea === 'r7' ? 
                 <div className="compoundCityArea__ProjectsContainer r7">
                   <div className="compoundProjects__container">
-                      <Link to="/projects" className='drawerBox'><ButtonProject variant="contained" color="primary" disableRipple className={classes.margin}  > كمبوند أرمونيا </ButtonProject></Link>
-                      <Link to="/projects" className='drawerBox'><ButtonProject variant="contained" color="primary" disableRipple className={classes.margin}  > كمبوند Scene7 </ButtonProject></Link>
-                      <Link to="/projects" className='drawerBox'><ButtonProject variant="contained" color="primary" disableRipple className={classes.margin}  > كمبوند أتيكا </ButtonProject></Link>
+                      <Link to="/projectPage" className='drawerBox'><ButtonProject variant="contained" color="primary" disableRipple className={classes.margin}  > كمبوند أرمونيا </ButtonProject></Link>
+                      <Link to="/projectPage" className='drawerBox'><ButtonProject variant="contained" color="primary" disableRipple className={classes.margin}  > كمبوند Scene7 </ButtonProject></Link>
+                      <Link to="/projectPage" className='drawerBox'><ButtonProject variant="contained" color="primary" disableRipple className={classes.margin}  > كمبوند أتيكا </ButtonProject></Link>
                   </div>
                   <div className="compoundProjects__container">
-                      <Link to="/projects" className='drawerBox'><ButtonProject variant="contained" color="primary" disableRipple className={classes.margin}  > كمبوند بوتانيكا </ButtonProject></Link>
-                      <Link to="/projects" className='drawerBox'><ButtonProject variant="contained" color="primary" disableRipple className={classes.margin}  >  ستريب مول ديجويا </ButtonProject></Link>
-                      <Link to="/projects" className='drawerBox'><ButtonProject variant="contained" color="primary" disableRipple className={classes.margin}  > برج 31 North  </ButtonProject></Link>
+                      <Link to="/projectPage" className='drawerBox'><ButtonProject variant="contained" color="primary" disableRipple className={classes.margin}  > كمبوند بوتانيكا </ButtonProject></Link>
+                      <Link to="/projectPage" className='drawerBox'><ButtonProject variant="contained" color="primary" disableRipple className={classes.margin}  >  ستريب مول ديجويا </ButtonProject></Link>
+                      <Link to="/projectPage" className='drawerBox'><ButtonProject variant="contained" color="primary" disableRipple className={classes.margin}  > برج 31 North  </ButtonProject></Link>
                   </div>
                   <div className="compoundProjects__container">
-                      <Link to="/projects" className='drawerBox'><ButtonProject variant="contained" color="primary" disableRipple className={classes.margin}  > كمبوند العتال </ButtonProject></Link>
-                      <Link to="/projects" className='drawerBox'><ButtonProject variant="contained" color="primary" disableRipple className={classes.margin}  >ديجويا مول  </ButtonProject></Link>
-                      <Link to="/projects" className='drawerBox'><ButtonProject variant="contained" color="primary" disableRipple className={classes.margin}  > برج 31 North  </ButtonProject></Link>
+                      <Link to="/projectPage" className='drawerBox'><ButtonProject variant="contained" color="primary" disableRipple className={classes.margin}  > كمبوند العتال </ButtonProject></Link>
+                      <Link to="/projectPage" className='drawerBox'><ButtonProject variant="contained" color="primary" disableRipple className={classes.margin}  >ديجويا مول  </ButtonProject></Link>
+                      <Link to="/projectPage" className='drawerBox'><ButtonProject variant="contained" color="primary" disableRipple className={classes.margin}  > برج 31 North  </ButtonProject></Link>
                   </div>
                 </div> 
                 : <></>}
                 {activeArea === 'r8' ? 
                 <div className="compoundCityArea__ProjectsContainer r8">
                   <div className="compoundProjects__container">
-                      <Link to="/projects" className='drawerBox'><ButtonProject variant="contained" color="primary" disableRipple className={classes.margin}  > كمبوند لافيدي </ButtonProject></Link>
-                      <Link to="/projects" className='drawerBox'><ButtonProject variant="contained" color="primary" disableRipple className={classes.margin}  > كمبوند روزس </ButtonProject></Link>
-                      <Link to="/projects" className='drawerBox'><ButtonProject variant="contained" color="primary" disableRipple className={classes.margin}  > كمبوند ديجويا </ButtonProject></Link>
+                      <Link to="/projectPage" className='drawerBox'><ButtonProject variant="contained" color="primary" disableRipple className={classes.margin}  > كمبوند لافيدي </ButtonProject></Link>
+                      <Link to="/projectPage" className='drawerBox'><ButtonProject variant="contained" color="primary" disableRipple className={classes.margin}  > كمبوند روزس </ButtonProject></Link>
+                      <Link to="/projectPage" className='drawerBox'><ButtonProject variant="contained" color="primary" disableRipple className={classes.margin}  > كمبوند ديجويا </ButtonProject></Link>
                   </div>
                 </div> 
                 : <></>}
                 {activeArea === 'downTown' ? 
                 <div className="compoundCityArea__ProjectsContainer downTown">
                   <div className="compoundProjects__container">
-                      <Link to="/projects" className='drawerBox'><ButtonProject variant="contained" color="primary" disableRipple className={classes.margin}  > مول اسجارد </ButtonProject></Link>
-                      <Link to="/projects" className='drawerBox'><ButtonProject variant="contained" color="primary" disableRipple className={classes.margin}  > مول انيزيا </ButtonProject></Link>
-                      <Link to="/projects" className='drawerBox'><ButtonProject variant="contained" color="primary" disableRipple className={classes.margin}  > مول فينشي ستريت </ButtonProject></Link>
+                      <Link to="/projectPage" className='drawerBox'><ButtonProject variant="contained" color="primary" disableRipple className={classes.margin}  > مول اسجارد </ButtonProject></Link>
+                      <Link to="/projectPage" className='drawerBox'><ButtonProject variant="contained" color="primary" disableRipple className={classes.margin}  > مول انيزيا </ButtonProject></Link>
+                      <Link to="/projectPage" className='drawerBox'><ButtonProject variant="contained" color="primary" disableRipple className={classes.margin}  > مول فينشي ستريت </ButtonProject></Link>
                   </div>
                 </div> 
                 : <></>}
                 {activeArea === 'mu23' ? 
                 <div className="compoundCityArea__ProjectsContainer mu23">
                   <div className="compoundProjects__container">
-                      <Link to="/projects" className='drawerBox'><ButtonProject variant="contained" color="primary" disableRipple className={classes.margin}  > مول باريس ايست </ButtonProject></Link>
-                      <Link to="/projects" className='drawerBox'><ButtonProject variant="contained" color="primary" disableRipple className={classes.margin}  > مول العاصمة الطبية </ButtonProject></Link>
-                      <Link to="/projects" className='drawerBox'><ButtonProject variant="contained" color="primary" disableRipple className={classes.margin}  > مول  G3 </ButtonProject></Link>
+                      <Link to="/projectPage" className='drawerBox'><ButtonProject variant="contained" color="primary" disableRipple className={classes.margin}  > مول باريس ايست </ButtonProject></Link>
+                      <Link to="/projectPage" className='drawerBox'><ButtonProject variant="contained" color="primary" disableRipple className={classes.margin}  > مول العاصمة الطبية </ButtonProject></Link>
+                      <Link to="/projectPage" className='drawerBox'><ButtonProject variant="contained" color="primary" disableRipple className={classes.margin}  > مول  G3 </ButtonProject></Link>
                   </div>
                 </div> 
                 : <></>}

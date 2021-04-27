@@ -1,0 +1,68 @@
+.projectPage {
+  min-height: 100vh;
+  background-image: linear-gradient(90deg, blue, rgb(50, 233, 227));
+  position: absolute;
+  width: 100vw;
+}
+.projectPage__nameContainer {
+  display: block;
+  flex-direction: column;
+  align-self: center;
+  width: 75vw;
+  margin: 10vh auto;
+  background-image: linear-gradient(90deg, rgb(0, 0, 155), rgb(98, 240, 235));
+  border-radius: 10px;
+  padding: 10px;
+  box-shadow: -1px 4px 20px -6px rgba(0, 0, 0, 0.75);
+}
+.projectPage__name {
+  text-align: center;
+  font-size: 26px;
+  color: white;
+  font-family: "Almarai", sans-serif;
+  margin-bottom: 10px;
+}
+.projectPage__nameDate {
+  text-align: center;
+  color: white;
+  font-size: 14px;
+}
+.projectFormTitle {
+  width: 70vw;
+  margin-right: 10vw;
+  font-size: 18px;
+}
+.projectForm__container{
+    margin: 0 10vw;
+}
+.projectPic {
+  border-radius: 15px;
+}
+.projectPage__contentsContainer {
+  display: block;
+  width: 75vw;
+  margin: 3vh auto;
+  background-image: linear-gradient(
+    90deg,
+    rgb(210, 210, 210),
+    rgb(245, 245, 245)
+  );
+  padding: 2vh 5vw;
+  box-shadow: -1px 4px 20px -6px rgba(0, 0, 0, 0.75);
+  border: solid 1px black;
+  border-radius: 10px;
+}
+.projectPage__contentTitle {
+    margin-bottom: 10px;
+    font-family: "Almarai", sans-serif;
+}
+.projectPage__contentLink{
+    text-decoration: none;
+}
+.projectPage__contentLink:hover{
+    text-decoration: underline;
+}
+.projectPage__contentText{
+    font-size: 14px;
+
+}

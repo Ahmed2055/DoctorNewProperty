@@ -2,8 +2,6 @@ import './App.css';
 import {BrowserRouter as Router,Switch,Route} from "react-router-dom";
 import Header from './components/Header';
 import Home from './screens/Home';
-import Footer from './components/Footer';
-import BackgroundTheme from './components/BackgroundTheme';
 import Residential from './screens/Residential';
 import ContactPage from './screens/ContactPage';
 import Administrative from './screens/Administrative';
@@ -15,6 +13,7 @@ import FAQ from './screens/FAQ';
 import Terms from './screens/Terms';
 import DashBoard from './screens/DashBoard';
 import Compounds from './screens/Projects';
+import ProjectPage from './screens/ProjectPage';
 
 function App() {
   return (
@@ -24,6 +23,10 @@ function App() {
           <Route path="/propertyPage">
             <Header />
             <PropertyPage />
+          </Route>
+          <Route path="/projectPage">
+            <Header />
+            <ProjectPage />
           </Route>
           <Route path="/questions">
             <Header />
