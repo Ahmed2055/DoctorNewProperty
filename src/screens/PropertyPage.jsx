@@ -26,12 +26,14 @@ function PropertyPage() {
     const [showRoomCount, setShowRoomCount] = useState(false)
     const [showBathRoomCount, setShowBathRoomCount] = useState(false)
 
+    const [lang, setLang] = useState('/ar')
+
 
     let history = useHistory();
 
     useEffect  (() => {
-        const propType = history.location.pathname.slice(14,19)
-        const propId = history.location.pathname.slice(20)
+        const propType = history.location.pathname.slice(17,22)
+        const propId = history.location.pathname.slice(23)
         
         setCurrentPropType(propType)
         
@@ -146,7 +148,6 @@ function PropertyPage() {
                         <span className="propertyDetails__typeText"> {residentialData[2].bathroomCount} حمام </span>
                     </div>
                     :  <></>  }
-                    
                     
                 </div>
 

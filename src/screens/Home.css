@@ -2,15 +2,17 @@
   min-height: 100vh;
   background-image: linear-gradient(90deg, blue, rgb(50, 233, 227));
   position: absolute;
+  padding:0 auto !important;
   width: 100vw;
 }
 .slogan {
   font-size: 22px;
   font-weight: 700;
   font-family: "Reem Kufi", sans-serif;
-  margin-left: auto;
-  margin-right: auto;
-  width: 85%;
+  position: block !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  width: 75%;
   text-align: center;
   color: white;
 }
@@ -26,8 +28,7 @@
   flex-direction: row;
   align-items: center;
   justify-content: space-evenly;
-  margin-top: 5vh;
-  margin-bottom: 0vh;
+  margin: 5vh 0vw 0 4vw;
 }
 .homeDecor {
   width: 100vw;
@@ -44,6 +45,7 @@
   margin: 5vh 5vw;
   width: 90vw;
   box-shadow: -1px 4px 20px -6px rgba(0, 0, 0, 0.75);
+  border-radius: 10px;
 }
 .mapImage2 {
   display: block;
@@ -62,7 +64,7 @@
   background-image: linear-gradient(
     90deg,
     rgb(210, 210, 210),
-    rgb(245, 245, 245)
+    rgb(255, 255, 255)
   );
   margin: 5vw 10vw;
   padding: 5vw;
@@ -146,7 +148,10 @@
   background-image: linear-gradient(90deg, black, rgb(86, 86, 86));
 }
 .homeOffer__adContainer {
-  margin-right: 12vw;
+  position: block !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  text-align: center;
   color: white;
 }
 .homeOffer__adLink {

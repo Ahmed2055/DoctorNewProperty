@@ -6,10 +6,12 @@ import SingleBedIcon from '@material-ui/icons/SingleBed';
 import BathtubIcon from '@material-ui/icons/Bathtub';
 
 function Property({property, type}) {
+    
+    const [lang, setLang] = useState('/ar')
 
     return (
         <div className='property'> 
-            <Link to={`/propertyPage/${type}/${property.id}`} className='propertyLink' >
+            <Link to={`${lang}/propertyPage/${type}/${property.id}`} className='propertyLink' >
                 <>
                 <div className='propertyPicDiv' style ={ { backgroundImage: `url(${property.picUrl})` } } >
                     <div className='picCountDiv'>

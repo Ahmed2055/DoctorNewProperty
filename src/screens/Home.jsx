@@ -8,6 +8,7 @@ import { createMuiTheme, withStyles, makeStyles, ThemeProvider } from '@material
 import { green, purple } from '@material-ui/core/colors';
 import SliderComponent from '../components/SliderComponent';
 import capitalMap from '../store/capitalMap.jpg';
+import newCapImg from '../pics/newCapImg.png';
 import alameenPic1 from '../store/alameenPic1.png';
 import alameenPic2 from '../store/alameenPic2.png';
 import alameenMap from '../store/alameenMap.png';
@@ -19,8 +20,8 @@ const BootstrapButton = withStyles({
     root: {
       boxShadow: 'none',
       textTransform: 'none',
-      fontSize: 16,
-      padding: '6px 12px',
+      fontSize: 14,
+      padding: '4px 8px',
       border: '1px solid',
       lineHeight: 1.5,
       backgroundColor: '#0063cc',
@@ -65,7 +66,7 @@ const BootstrapButton = withStyles({
   
   const useStyles = makeStyles((theme) => ({
     margin: {
-      margin: theme.spacing(1),
+      margin: theme.spacing(0.25),
     },
   }));
   
@@ -82,6 +83,7 @@ function Home() {
     const classes = useStyles();
 
     const [activeCity, setActiveCity] = useState('capital')
+    const [lang, setLang] = useState('/ar')
 
     const [name, setName] = useState('')
     const [email, setEmail] = useState('')
@@ -106,17 +108,15 @@ function Home() {
     setMessage('')
    }
 
-
-
    
     return (
         <div className='home'>
 
-            <p className="citiesChoose slogan">تميزنا في إقتناص الفرص السكنية و الإستثمارية المتميزة  في</p>
+            <p className="citiesChoose slogan">تميزنا في إقتناص الفرص السكنية و الإستثمارية المتميزة </p>
             <div className="citiesChoose">
                 <BootstrapButton variant="contained" color="primary" disableRipple className={classes.margin} onClick={()=>setActiveCity('capital')}>العاصمة الإدارية</BootstrapButton>
-                <span className="citiesChoose__and">و</span>
                 <BootstrapButton variant="contained" color="primary" disableRipple className={classes.margin} onClick={()=>setActiveCity('alameen')}> العلمين الجديدة</BootstrapButton>
+                <BootstrapButton variant="contained" color="primary" disableRipple className={classes.margin} > القاهرة الجديدة</BootstrapButton>
             </div>
 
         {activeCity !== 'capital' ?
@@ -129,7 +129,7 @@ function Home() {
 
             <div className="homeOffer__adContainer">
                 <p className="homeOffer__adText" >
-                  لأحدث عروض العقارات السكنية المتنوعة  <Link to='/residential'  className="homeOffer__adLink"> اضغط هنا</Link>
+                  لأحدث عروض العقارات السكنية المتنوعة  <Link to={`${lang}/residential`}  className="homeOffer__adLink"> اضغط هنا</Link>
                 </p>
             </div>
 
@@ -140,7 +140,7 @@ function Home() {
             <img src={alameenPic1} className='mapImage mapImage2' />
             <div className="homeOffer__adContainer">
                 <p className="homeOffer__adText" >
-                    لمشاهدة عروضنا الخاصة بالعيادات الطبية <Link to='/clinics'  className="homeOffer__adLink"> اضغط هنا</Link>
+                    لمشاهدة عروضنا الخاصة بالعيادات الطبية <Link to={`${lang}/clinics`}  className="homeOffer__adLink"> اضغط هنا</Link>
                 </p>
             </div>
             <div className='homeInfo__container'>
@@ -151,7 +151,7 @@ function Home() {
             <img src={alameenPic2} className='mapImage mapImage2' />
             <div className="homeOffer__adContainer">
                 <p className="homeOffer__adText" >
-                     فرص إستثمارية متميزة في المكاتب الإدارية <Link to='/administrative'  className="homeOffer__adLink"> من هنا</Link>
+                     فرص إستثمارية متميزة في المكاتب الإدارية <Link to={`${lang}/administrative`}  className="homeOffer__adLink"> من هنا</Link>
                 </p>
             </div>
             <div className='homeInfo__container'>
@@ -160,7 +160,7 @@ function Home() {
             </div>
             <div className="homeOffer__adContainer">
                 <p className="homeOffer__adText" >
-                    إطلع  علي عروضنا الخاصة بالمشاريع التجارية <Link to='/commercial'  className="homeOffer__adLink"> من هنا</Link>
+                    إطلع  علي عروضنا الخاصة بالمشاريع التجارية <Link to={`${lang}/commercial`}  className="homeOffer__adLink"> من هنا</Link>
                 </p>
             </div>
            
@@ -178,7 +178,7 @@ function Home() {
             </div>
             <div className="homeOffer__adContainer">
                 <p className="homeOffer__adText" >
-                   متوفر أيضا صيدليات في مواقع مميزة  <Link to='/pharmacies'  className="homeOffer__adLink"> من هنا  </Link>
+                   متوفر أيضا صيدليات في مواقع مميزة  <Link to={`${lang}/pharmacies`}  className="homeOffer__adLink"> من هنا  </Link>
                 </p>
             </div>
             <div className='homeInfo__container'>
@@ -189,6 +189,7 @@ function Home() {
             :
             <div className='admCapital' >
             <img src={capitalMap} className='mapImage' />
+            
             <div className='capitalVideo' >
             <ReactPlayer width={window.innerWidth*0.9} height={window.innerWidth*0.9*0.56}  url="https://www.youtube.com/watch?v=NTbdwMATGSI" />
             </div>
@@ -200,7 +201,7 @@ function Home() {
 
             <div className="homeOffer__adContainer">
                 <p className="homeOffer__adText" >
-                  لأحدث عروض العقارات السكنية المتنوعة  <Link to='/residential'  className="homeOffer__adLink"> اضغط هنا</Link>
+                  لأحدث عروض العقارات السكنية المتنوعة  <Link to={`${lang}/residential`}  className="homeOffer__adLink"> اضغط هنا</Link>
                 </p>
             </div>
 
@@ -218,11 +219,12 @@ function Home() {
                 </ul>
             </div>
 
+
             <img src={homeMonoreel2} className='mapImage' />
 
             <div className="homeOffer__adContainer">
                 <p className="homeOffer__adText" >
-                    لمشاهدة عروضنا الخاصة بالعيادات الطبية <Link to='/clinics'  className="homeOffer__adLink"> اضغط هنا</Link>
+                    لمشاهدة عروضنا الخاصة بالعيادات الطبية <Link to={`${lang}/clinics`}  className="homeOffer__adLink"> اضغط هنا</Link>
                 </p>
             </div>
 
@@ -248,7 +250,7 @@ function Home() {
 
             <div className="homeOffer__adContainer">
                 <p className="homeOffer__adText" >
-                     فرص إستثمارية متميزة في المكاتب الإدارية <Link to='/administrative'  className="homeOffer__adLink"> من هنا</Link>
+                     فرص إستثمارية متميزة في المكاتب الإدارية <Link to={`${lang}/administrative`}  className="homeOffer__adLink"> من هنا</Link>
                 </p>
             </div>
 
@@ -264,9 +266,11 @@ function Home() {
                 </ul>
             </div>
 
+            <img src={newCapImg} className='mapImage mapImage2' />
+
             <div className="homeOffer__adContainer">
                 <p className="homeOffer__adText" >
-                    إطلع  علي عروضنا الخاصة بالمشاريع التجارية <Link to='/commercial'  className="homeOffer__adLink"> من هنا</Link>
+                    إطلع  علي عروضنا الخاصة بالمشاريع التجارية <Link to={`${lang}/commercial`}  className="homeOffer__adLink"> من هنا</Link>
                 </p>
             </div>
 
@@ -278,7 +282,7 @@ function Home() {
 
             <div className="homeOffer__adContainer">
                 <p className="homeOffer__adText" >
-                   متوفر أيضا صيدليات في مواقع مميزة  <Link to='/pharmacies'  className="homeOffer__adLink"> من هنا  </Link>
+                   متوفر أيضا صيدليات في مواقع مميزة  <Link to={`${lang}/pharmacies`}  className="homeOffer__adLink"> من هنا  </Link>
                 </p>
             </div>
         </div>
@@ -293,8 +297,8 @@ function Home() {
                 <h2 className='homeInfo__title'>اتصل بنا</h2>
                 <AddIcCallIcon fontSize='large' className='homeCall__titleIcon'/>
             </div>
-            <p className='homeInfo__paragraph' >Mobile:  <Link to='/' className='homeCall__tel'>  +9665651940279</Link></p>
-            <p className='homeInfo__paragraph' >Mobile:  <Link to='/' className='homeCall__tel'>  +9665651940278</Link></p>
+            <p className='homeInfo__paragraph' >Mobile:  <Link to={`${lang}/`} className='homeCall__tel'>  +9665651940279</Link></p>
+            <p className='homeInfo__paragraph' >Mobile:  <Link to={`${lang}/`} className='homeCall__tel'>  +9665651940278</Link></p>
             </div>
 
             <h2 className='homeInfo__title formTitle'> طلب عرض أسعار / إستفسار</h2>

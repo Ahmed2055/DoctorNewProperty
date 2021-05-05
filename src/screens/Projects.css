@@ -2,6 +2,7 @@
   background-image: linear-gradient(90deg, blue, rgb(50, 233, 227));
   min-height: 100vh;
   padding-top: 2vh;
+  width: 100vw;
 }
 .projectsReset {
   display: block;

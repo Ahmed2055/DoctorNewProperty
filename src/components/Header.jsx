@@ -98,6 +98,7 @@ function Header() {
   const classes = useStyles();
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
+  const [lang, setLang] = useState('/ar')
   
 
   const handleDrawerOpen = () => { setOpen(true); };
@@ -116,7 +117,7 @@ function Header() {
                     </div>
                     <Divider />
                     <List dir="ltr">
-                      <Link to="/" className='drawerBox'>
+                      <Link to={`${lang}/`} className='drawerBox'>
                           <ListItem button className='listItem' classes={{}} >
                             <ListItemIcon> <HomeIcon />  </ListItemIcon>
                             <ListItemText className='listItemText' primary='الصفحة الرئيسية' />
@@ -125,7 +126,7 @@ function Header() {
                     </List>
                     <Divider />
                     <List dir="ltr">
-                      <Link to="/projects" className='drawerBox'>
+                      <Link to={`${lang}/projects`} className='drawerBox'>
                           <ListItem button className='listItem' classes={{}} >
                             <ListItemIcon>  <EmojiTransportationIcon /> </ListItemIcon>
                             <ListItemText className='listItemText' primary='موسوعة المشاريع' />
@@ -134,31 +135,31 @@ function Header() {
                     </List>
                     <Divider />
                     <List dir="ltr">
-                        <Link to="/residential" className='drawerBox'>
+                        <Link to={`${lang}/residential`} className='drawerBox'>
                           <ListItem button className='listItem' classes={{}} >
                             <ListItemIcon>  <span className="material-icons">villa</span></ListItemIcon>
                             <ListItemText className='listItemText' primary='عقارات سكنية' />
                           </ListItem>
                         </Link>
-                        <Link to="/administrative" className='drawerBox'>
+                        <Link to={`${lang}/administrative`} className='drawerBox'>
                           <ListItem button className='listItem' >
                               <ListItemIcon> <BusinessIcon /></ListItemIcon>
                               <ListItemText className='listItemText' primary='مكاتب إدارية' />
                           </ListItem>
                         </Link>
-                        <Link to="/commercial" className='drawerBox'>
+                        <Link to={`${lang}/commercial`} className='drawerBox'>
                           <ListItem button className='listItem' >
                               <ListItemIcon> <StoreIcon /></ListItemIcon>
                               <ListItemText className='listItemText' primary='محلات تجارية' />
                           </ListItem>
                         </Link>
-                        <Link to="/clinics" className='drawerBox'>
+                        <Link to={`${lang}/clinics`} className='drawerBox'>
                           <ListItem button className='listItem' >
                               <ListItemIcon> <LocalHospitalIcon /></ListItemIcon>
                               <ListItemText className='listItemText' primary='عيادات طبية' />
                           </ListItem>
                         </Link>
-                        <Link to="/pharmacies" className='drawerBox'>
+                        <Link to={`${lang}/pharmacies`} className='drawerBox'>
                           <ListItem button className='listItem' >
                               <ListItemIcon> <LocalPharmacyIcon /></ListItemIcon>
                               <ListItemText className='listItemText' primary='صيدليات' />
@@ -167,7 +168,7 @@ function Header() {
                     </List>
                     <Divider />
                     <List dir="ltr">
-                      <Link to="/questions" className='drawerBox'>
+                      <Link to={`${lang}/questions`} className='drawerBox'>
                           <ListItem button className='listItem' classes={{}} >
                             <ListItemIcon> <ContactSupportIcon />  </ListItemIcon>
                             <ListItemText className='listItemText' primary='الأسئلة الأكثر شيوعا' />
@@ -176,7 +177,7 @@ function Header() {
                     </List>
                     <Divider />
                     <List dir="ltr">
-                      <Link to="/conditions" className='drawerBox'>
+                      <Link to={`${lang}/conditions`} className='drawerBox'>
                           <ListItem button className='listItem' classes={{}} >
                             <ListItemIcon> <span className="material-icons">format_list_numbered_rtl</span>  </ListItemIcon>
                             <ListItemText className='listItemText' primary='الشروط و الأحكام' />
@@ -185,7 +186,7 @@ function Header() {
                     </List>
                     <Divider />
                     <List dir="ltr">
-                      <Link to="/contact" className='drawerBox'>
+                      <Link to={`${lang}/contact`} className='drawerBox'>
                           <ListItem button className='listItem' classes={{}} >
                             <ListItemIcon> <span className="material-icons">chat</span>  </ListItemIcon>
                             <ListItemText className='listItemText' primary='إتصل بنا' />
@@ -196,11 +197,11 @@ function Header() {
                 </Drawer>
             </div>
             
-            <Link to="/" ><img className='headerLogo' src={logo} alt='logo' ></img></Link>
+            <Link to={`${lang}/`} ><img className='headerLogo' src={logo} alt='logo' ></img></Link>
             
             <div className='headerContact' >
                 <PhoneEnabledIcon className='headerContact_icon' fontSize='default' />
-                <Link to='/' className='headerContact_number' > 01008767025 </Link>
+                <Link to={`${lang}/`} className='headerContact_number' > 0100876702 </Link>
             </div>
         </div>
     )

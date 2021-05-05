@@ -20,53 +20,57 @@ function App() {
     <div className="App">
       <Router>
         <Switch>
-          <Route path="/propertyPage">
+          <Route path="/ar/propertyPage">
             <Header />
             <PropertyPage />
           </Route>
-          <Route path="/projectPage">
+          <Route path="/ar/projectPage">
             <Header />
             <ProjectPage />
           </Route>
-          <Route path="/questions">
+          <Route path="/ar/questions">
             <Header />
             <FAQ />
           </Route>
-          <Route path="/conditions">
+          <Route path="/ar/conditions">
             <Header />
             <Terms />
           </Route>
-          <Route path="/contact">
+          <Route path="/ar/contact">
             <Header />
             <ContactPage />
           </Route>
-          <Route path="/residential">
+          <Route path="/ar/residential">
             <Header />
             <Residential />
           </Route>
-          <Route path="/administrative">
+          <Route path="/ar/administrative">
             <Header />
             <Administrative />
           </Route>
-          <Route path="/commercial">
+          <Route path="/ar/commercial">
             <Header />
             <Commercial />
           </Route>
-          <Route path="/clinics">
+          <Route path="/ar/clinics">
             <Header />
             <Clinics />
           </Route>
-          <Route path="/pharmacies">
+          <Route path="/ar/pharmacies">
             <Header />
             <Pharmacies />
           </Route>
-          <Route path="/dashboard">
+          <Route path="/ar/dashboard">
             <Header />
             <DashBoard />
           </Route>
-          <Route path="/projects">
+          <Route path="/ar/projects">
               <Header />
               <Compounds />
+          </Route>
+          <Route path="/ar/">
+              <Header />
+              <Home />
           </Route>
           <Route path="/">
               <Header />

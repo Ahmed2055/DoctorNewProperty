@@ -1,4 +1,5 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
+import { useHistory } from "react-router-dom";
 import './ProjectPage.css'
 import './Home.css'
 import { Link } from "react-router-dom";
@@ -7,7 +8,9 @@ import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos';
 import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
 import Brightness1Icon from '@material-ui/icons/Brightness1';
 import {residentialData} from '../store/propertyData.jsx'
+import {projects} from '../store/projectsData.jsx'
 import mapImage from '../pics/mapImage.png';
+import noPhotoAvailable from '../pics/noPhotoAvailable.jfif';
 
 function ProjectPage() {
 
@@ -17,6 +20,11 @@ function ProjectPage() {
     const [email, setEmail] = useState('')
     const [contactNumber, setContactNumber] = useState('')
     const [message, setMessage] = useState('')
+
+    let history = useHistory();
+
+    const [currentProjectId, setCurrentProjectId] = useState('')
+    const [currentProject, setCurrentProject] = useState(null)
 
    const handleMessage = (e)=>{
     e.preventDefault();
@@ -37,7 +45,7 @@ function ProjectPage() {
    }
 
    const goRightPic = ()=>{
-    if(activePic != residentialData[2].pics.length-1){
+    if(activePic != currentProject.pics.length-1){
         setActivePic(activePic+1)
         }
     }
@@ -47,11 +55,138 @@ function ProjectPage() {
         }
     }
 
+    useEffect(() => {
+        const projectId = history.location.pathname.slice(16)
+        setCurrentProjectId(projectId)
+        console.log(projectId)
+        for(let i = 0 ; projects.length ; i++ ){
+            if(projects[i].id  == projectId ){
+                setCurrentProject(projects[i])
+                break ;
+            }
+        }
+    }, [history])
+
     return (
         <div className='projectPage'>
             <div className="projectPage__nameContainer">
-                <h2 className="projectPage__name"> كمبوند انترادا افينو العاصمة الادارية </h2>
-                <p className="projectPage__nameDate">  أبريل 21, 2021 </p>
+                <h2 className="projectPage__name">  {currentProject === null?  '' :currentProject.detailedName} </h2>
+                <p className="projectPage__nameDate">  {currentProject === null?  '' :currentProject.dateUpdated} </p>
+            </div>
+            
+            {projects[0].pics === null?  <></> :
+            <div className="projectPage__imagesContainer">
+                <div className="propertyPics" >
+                    <button className='propertyPics__changerRight' onClick={()=>goRightPic()}  > <ArrowForwardIosIcon fontSize='small' /> </button>
+                    <img className="propertyPic projectPic" src={currentProject === null?  noPhotoAvailable :currentProject.pics[activePic]}  />
+                    <button className='propertyPics__changerLeft' onClick={()=>goLeftPic()} > <ArrowBackIosIcon fontSize='small'/> </button>
+                    {/*<button className='propertyPics__changerLeft' onClick={()=>console.log(currentProject)} > <ArrowBackIosIcon fontSize='small'/> </button>*/}
+                </div>
+                <div className="proprtyPics__counterContainer" dir='ltr'>{currentProject === null?  '' :currentProject.pics.map((image,index)=>(<Brightness1Icon key={index} className={activePic === index? 'proprtyPics__counterIconActive': 'proprtyPics__counterIcon'} fontSize='small'  />))}</div>
+            </div> }
+            
+            <div className="projectPage__contentsContainer">
+                <h3 className="projectPage__contentTitle">محتوي المقالة</h3>
+                <ol className="projectPage__content">
+                    <a className='projectPage__contentLink' href="/"><li className="projectPage__contentText">موقع {currentProject === null?  '' :currentProject.longerName}  </li></a>
+                    <a className='projectPage__contentLink' href=""><li className="projectPage__contentText">مساحة {currentProject === null?  '' :currentProject.longerName} </li></a>
+                    <a className='projectPage__contentLink' href=""><li className="projectPage__contentText">خدمات {currentProject === null?  '' :currentProject.longerName}  </li></a>
+                    <a className='projectPage__contentLink' href=""><li className="projectPage__contentText">الأسعار وأنظمة السداد في {currentProject === null?  '' :currentProject.longerName}  </li></a>
+                    <a className='projectPage__contentLink' href=""><li className="projectPage__contentText">أنظمة السداد والدفع في {currentProject === null?  '' :currentProject.longerName}  </li></a>
+                    <a className='projectPage__contentLink' href=""><li className="projectPage__contentText">الشركة المالكة ل{currentProject === null?  '' :currentProject.longerName} </li></a>
+                    <a className='projectPage__contentLink' href=""><li className="projectPage__contentText">أعمال {currentProject === null?  '' :currentProject.projectDeveloperName} </li></a>
+                    <a className='projectPage__contentLink' href=""><li className="projectPage__contentText">ملاك {currentProject === null?  '' :currentProject.projectDeveloperName} </li></a>
+                    <a className='projectPage__contentLink' href=""><li className="projectPage__contentText">التواصل مع مسئولي مبيعات {currentProject === null?  '' :currentProject.projectDeveloperName} </li></a>
+                    <Link className='projectPage__contentLink' to='/ar/'><li className="projectPage__contentText">العاصمة الادارية الجديدة </li></Link>
+                </ol>
+            </div>
+            <div className='homeInfo__container'>
+                <h2 className='homeInfo__title'>موقع {currentProject === null?  '' :currentProject.detailedName} </h2>
+                <p className='homeInfo__paragraph'> {currentProject === null?  '' :currentProject.locationDescription} </p>
+                <ul className='homeInfo__list' ></ul>
+                {currentProject === null?  '' :currentProject.locationPoints.split("\n").map((point,index)=>(<li key={index} className='homeInfo__point'> {point} </li>)) }
+                {currentProject === null? '' : 
+                <a href={currentProject.location === ''? residentialData[2].location : currentProject.location } className="propertyLocation__link">
+                    <img src={mapImage} alt="Map Image" className="propertyLocation__pic"/>
+                    <p className="propertyLocation__address">{currentProject === null?  '' :currentProject.address}</p>
+                </a>
+                }
+            </div>
+
+            <div className='homeInfo__container'>
+                <h2 className='homeInfo__title'> مساحة {currentProject === null?  '' :currentProject.detailedName}</h2>
+                <p className='homeInfo__paragraph'> {currentProject === null?  '' :currentProject.spaceDescription} </p>
+            </div>
+            <div className='homeInfo__container'>
+                <h2 className='homeInfo__title'> خدمات {currentProject === null?  '' :currentProject.detailedName}</h2>
+                <p className='homeInfo__paragraph'> يقدم الكمبوند مجموعة من الخدمات المتميزة وهي: </p>
+                <ul className='homeInfo__list' >
+                    {currentProject === null?  '' :currentProject.services.split("\n").map((service,index)=>(<li key={index} className='homeInfo__point'> {service} </li>))}
+                </ul>
+            </div>
+            <div className='homeInfo__container'>
+                <h2 className='homeInfo__title'> الأسعار  في {currentProject === null?  '' :currentProject.detailedName}</h2>
+                <p className='homeInfo__paragraph'> {currentProject === null?  '' :currentProject.prices} </p>
+            </div>
+            <div className='homeInfo__container'>
+                <h2 className='homeInfo__title'> أنظمة السداد والدفع في {currentProject === null?  '' :currentProject.detailedName}</h2>
+                <p className='homeInfo__paragraph'> منحت {currentProject === null?  '' :currentProject.projectDeveloperName} مجموعة من أنظمة السداد وهي: </p>
+                <ul className='homeInfo__list' >
+                    {currentProject === null?  '' :currentProject.paymentOptions.split("\n").map((option,index)=>(<li key={index} className='homeInfo__point'> {option}  </li>))}
+                </ul>
+            </div>
+            <div className='homeInfo__container'>
+                <h2 className='homeInfo__title'> الشركة المالكة ل{currentProject === null?  '' :currentProject.detailedName}</h2>
+                <p className='homeInfo__paragraph'> {currentProject === null?  '' :currentProject.projectDeveloperInfo} </p>
+            </div>
+            {currentProject === null? <></>:
+            <>
+            {currentProject.developerLastProjects === '' ? <></> : 
+            <div className='homeInfo__container'>
+                <h2 className='homeInfo__title'> أعمال {currentProject === null?  '' :currentProject.projectDeveloperName}</h2>
+                <p className='homeInfo__paragraph'> نفذت الشركة مجموعة من المشروعات المتميزة التي نالت على إعجاب العملاء، ومن هذه المشروعات: </p>
+                <ul className='homeInfo__list' >
+                    {currentProject === null?  '' :currentProject.developerLastProjects.split("\n").map((project,index)=>(<li key={index} className='homeInfo__point'>  {project} </li>))}
+                </ul>
+            </div>
+            }
+            </>
+            }
+            
+            {currentProject === null? <></> :
+            <>
+            {currentProject.projectOwners === '' ? <></>  : 
+            <>
+                <div className='homeInfo__container'>
+                    <h2 className='homeInfo__title'> ملاك {currentProject === null?  'data not available' :currentProject.projectDeveloperName}</h2>
+                    <ul className='homeInfo__list' >
+                        {currentProject === null?  'data not available' :currentProject.projectOwners.split("\n").map((owner,index)=>(<li key={index} className='homeInfo__point'> {owner} </li>))}
+                    </ul>
+                </div>
+                {currentProject.developerOtherProject === ''? <></> :
+                <>
+                    <div className='homeInfo__container'>
+                        <p className='homeInfo__paragraph'> {currentProject.developerOtherProject === ''?  '' :currentProject.developerOtherProject} </p>
+                        {currentProject.developerOtherProjectServices === ''? <></> :
+                        <>
+                        <p className='homeInfo__paragraph'> حرصت {currentProject === null?  'data not available' :currentProject.projectDeveloperName} على تقديم مجموعة من الخدمات في هذا المشروع ومن أهم هذه الخدمات: </p>
+                        <ul className='homeInfo__list' >
+                            {currentProject === null?  'data not available' :currentProject.developerOtherProjectServices.split("\n").map((service,index)=>(<li key={index} className='homeInfo__point'> {service} </li>))}
+                        </ul>
+                        </>
+                        }
+                    
+                    </div>
+                </>}
+                
+            </>
+            }
+            </>
+            }
+            
+            
+            <div className='homeInfo__container'>
+                <p className='homeInfo__paragraph'> يمكنك الأن التواصل مباشرة مع قسم إدارة المبيعات بالمشروع عن طريق   <a href={currentProject === null?  '' :currentProject.projectSalesWhatsLink} className='projectSalesLink'> الضغط هنا</a> </p>
             </div>
             <div className="projectPage__contactProject">
                 <h2 className='homeInfo__title formTitle projectFormTitle'> سجل بياناتك فى المشروع للتعرف على مزيد من التفاصيل</h2>
@@ -66,62 +201,6 @@ function ProjectPage() {
                     <input className='homeMessage__input inputMessage' value={message}  onChange={(e)=>setMessage(e.target.value)} />
                     <button className='homeForm__button' onClick={(e)=>handleMessage(e)} >إرسال</button>
                 </form>
-            </div>
-            <div className="projectPage__imagesContainer">
-                <div className="propertyPics" >
-                    <button className='propertyPics__changerRight' onClick={()=>goRightPic()}  > <ArrowForwardIosIcon fontSize='small' /> </button>
-                    <img className="propertyPic projectPic" src={residentialData[2] === null?  'data not available' : residentialData[2].pics[activePic]}  />
-                    <button className='propertyPics__changerLeft' onClick={()=>goLeftPic()} > <ArrowBackIosIcon fontSize='small'/> </button>
-                </div>
-                <div className="proprtyPics__counterContainer" dir='ltr'>{residentialData[2] === null?  'data not available' : residentialData[2].pics.map((image,index)=>(<Brightness1Icon key={index} className={activePic === index? 'proprtyPics__counterIconActive': 'proprtyPics__counterIcon'} fontSize='small'  />))}</div>
-            </div>
-            <div className="projectPage__contentsContainer">
-                <h3 className="projectPage__contentTitle">محتوي المقالة</h3>
-                <ol className="projectPage__content">
-                    <a className='projectPage__contentLink' href="/"><li className="projectPage__contentText">موقع كمبوند انترادا افينو العاصمة </li></a>
-                    <a className='projectPage__contentLink' href=""><li className="projectPage__contentText">مساحة كمبوند انترادا افينو العاصمة </li></a>
-                    <a className='projectPage__contentLink' href=""><li className="projectPage__contentText">خدمات كمبوند انترادا افينو العاصمة  </li></a>
-                    <a className='projectPage__contentLink' href=""><li className="projectPage__contentText">الأسعار وأنظمة السداد في كمبوند انترادا افينو العاصمة  </li></a>
-                    <a className='projectPage__contentLink' href=""><li className="projectPage__contentText">أنظمة السداد والدفع في كمبوند انترادا افينو العاصمة  </li></a>
-                    <a className='projectPage__contentLink' href=""><li className="projectPage__contentText">الشركة المالكة لكمبوند انترادا افينو العاصمة </li></a>
-                    <a className='projectPage__contentLink' href=""><li className="projectPage__contentText">أعمال شركة صروح العقارية </li></a>
-                    <a className='projectPage__contentLink' href=""><li className="projectPage__contentText">ملاك شركة صروح العقارية </li></a>
-                    <a className='projectPage__contentLink' href=""><li className="projectPage__contentText">التواصل مع مسئولي مبيعات شركة صروح العقارية </li></a>
-                    <a className='projectPage__contentLink' href=""><li className="projectPage__contentText">العاصمة الادارية الجديدة </li></a>
-                </ol>
-            </div>
-            <div className='homeInfo__container'>
-                <h2 className='homeInfo__title'>موقع كمبوند انترادا افينو العاصمة الادارية </h2>
-                <p className='homeInfo__paragraph'> يقع كمبوند انترادا افينو العاصمة الادارية في موقع حيوي ومميز في العاصمة الإدارية الجديدة، وذلك لأنه يقع في المنطقة R7، ويقع بالقرب من النهر الأخضر وأرض المعارض ومحور محمد بن زايد الجنوبي والكاتدرائية، مما جعله من أهم مشروعات الشركة في العاصمة الإدارية الجديدة. </p>
-                <a href={residentialData[2].location} className="propertyLocation__link">
-                    <img src={mapImage} alt="Map Image" className="propertyLocation__pic"/>
-                    <p className="propertyLocation__address">{residentialData[2] === null?  'data not available' : residentialData[2].address}</p>
-                </a>
-            </div>
-
-            <div className='homeInfo__container'>
-                <h2 className='homeInfo__title'> مساحة كمبوند انترادا افينو العاصمة الادارية</h2>
-                <p className='homeInfo__paragraph'> تم تنفيذ كنبوند انترادا افينو العاصمة الادارية على مساحة 72 فدان، وقد حرصت الشركة على تخصيص أكبر مساحة منه للمساحات الخضراء، بحيث تبلغ مساحة المباني والإنشاءات على 18% فقط من المساحة، وتبقى 82% من المساحة  للمناظر الطبيعية الخلابة، كما تبدأ المساحات داخل هذا الكمبوند منز80 متر مربع إلى 241 متر مربع. </p>
-            </div>
-            <div className='homeInfo__container'>
-                <h2 className='homeInfo__title'> الشاطئية</h2>
-                <p className='homeInfo__paragraph'>  </p>
-            </div>
-            <div className='homeInfo__container'>
-                <h2 className='homeInfo__title'> الشاطئية</h2>
-                <p className='homeInfo__paragraph'>  </p>
-            </div>
-            <div className='homeInfo__container'>
-                <h2 className='homeInfo__title'> الشاطئية</h2>
-                <p className='homeInfo__paragraph'>  </p>
-            </div>
-            <div className='homeInfo__container'>
-                <h2 className='homeInfo__title'> الشاطئية</h2>
-                <p className='homeInfo__paragraph'>  </p>
-            </div>
-            <div className='homeInfo__container'>
-                <h2 className='homeInfo__title'> الشاطئية</h2>
-                <p className='homeInfo__paragraph'>  </p>
             </div>
             
         </div>

@@ -37,6 +37,7 @@
 }
 .projectPic {
   border-radius: 15px;
+  max-height: 85vh;
 }
 .projectPage__contentsContainer {
   display: block;
@@ -64,5 +65,12 @@
 }
 .projectPage__contentText{
     font-size: 14px;
-
+}
+.projectSalesLink{
+  color: orange;
+  font-weight: 600;
+  text-decoration: none;
+}
+.projectSalesLink{
+  text-decoration: underline;
 }
