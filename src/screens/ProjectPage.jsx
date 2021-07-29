@@ -88,19 +88,19 @@ function ProjectPage() {
             <div className="projectPage__contentsContainer">
                 <h3 className="projectPage__contentTitle">محتوي المقالة</h3>
                 <ol className="projectPage__content">
-                    <a className='projectPage__contentLink' href="/"><li className="projectPage__contentText">موقع {currentProject === null?  '' :currentProject.longerName}  </li></a>
-                    <a className='projectPage__contentLink' href=""><li className="projectPage__contentText">مساحة {currentProject === null?  '' :currentProject.longerName} </li></a>
-                    <a className='projectPage__contentLink' href=""><li className="projectPage__contentText">خدمات {currentProject === null?  '' :currentProject.longerName}  </li></a>
-                    <a className='projectPage__contentLink' href=""><li className="projectPage__contentText">الأسعار وأنظمة السداد في {currentProject === null?  '' :currentProject.longerName}  </li></a>
-                    <a className='projectPage__contentLink' href=""><li className="projectPage__contentText">أنظمة السداد والدفع في {currentProject === null?  '' :currentProject.longerName}  </li></a>
-                    <a className='projectPage__contentLink' href=""><li className="projectPage__contentText">الشركة المالكة ل{currentProject === null?  '' :currentProject.longerName} </li></a>
-                    <a className='projectPage__contentLink' href=""><li className="projectPage__contentText">أعمال {currentProject === null?  '' :currentProject.projectDeveloperName} </li></a>
-                    <a className='projectPage__contentLink' href=""><li className="projectPage__contentText">ملاك {currentProject === null?  '' :currentProject.projectDeveloperName} </li></a>
-                    <a className='projectPage__contentLink' href=""><li className="projectPage__contentText">التواصل مع مسئولي مبيعات {currentProject === null?  '' :currentProject.projectDeveloperName} </li></a>
+                    <a className='projectPage__contentLink' href="#projectLocationDep"><li className="projectPage__contentText">موقع {currentProject === null?  '' :currentProject.longerName}  </li></a>
+                    <a className='projectPage__contentLink' href="#projectSpaceDep"><li className="projectPage__contentText">مساحة {currentProject === null?  '' :currentProject.longerName} </li></a>
+                    <a className='projectPage__contentLink' href="#projectServicesDep"><li className="projectPage__contentText">خدمات {currentProject === null?  '' :currentProject.longerName}  </li></a>
+                    <a className='projectPage__contentLink' href="#projectPricesDep"><li className="projectPage__contentText">الأسعار وأنظمة السداد في {currentProject === null?  '' :currentProject.longerName}  </li></a>
+                    <a className='projectPage__contentLink' href="#projectPaymentDep"><li className="projectPage__contentText">أنظمة السداد والدفع في {currentProject === null?  '' :currentProject.longerName}  </li></a>
+                    <a className='projectPage__contentLink' href="#projectCompanyDep"><li className="projectPage__contentText">الشركة المالكة ل{currentProject === null?  '' :currentProject.longerName} </li></a>
+                    <a className='projectPage__contentLink' href="#projectCompanyProjectsDep"><li className="projectPage__contentText">أعمال {currentProject === null?  '' :currentProject.projectDeveloperName} </li></a>
+                    <a className='projectPage__contentLink' href="#projectCompanyOwnerDep"><li className="projectPage__contentText">ملاك {currentProject === null?  '' :currentProject.projectDeveloperName} </li></a>
+                    <a className='projectPage__contentLink' href="#projectSalesContactDep"><li className="projectPage__contentText">التواصل مع مسئولي مبيعات {currentProject === null?  '' :currentProject.projectDeveloperName} </li></a>
                     <Link className='projectPage__contentLink' to='/ar/'><li className="projectPage__contentText">العاصمة الادارية الجديدة </li></Link>
                 </ol>
             </div>
-            <div className='homeInfo__container'>
+            <div className='homeInfo__container' id='projectLocationDep'>
                 <h2 className='homeInfo__title'>موقع {currentProject === null?  '' :currentProject.detailedName} </h2>
                 <p className='homeInfo__paragraph'> {currentProject === null?  '' :currentProject.locationDescription} </p>
                 <ul className='homeInfo__list' ></ul>
@@ -113,36 +113,37 @@ function ProjectPage() {
                 }
             </div>
 
-            <div className='homeInfo__container'>
+            <div className='homeInfo__container' id='projectSpaceDep'>
                 <h2 className='homeInfo__title'> مساحة {currentProject === null?  '' :currentProject.detailedName}</h2>
                 <p className='homeInfo__paragraph'> {currentProject === null?  '' :currentProject.spaceDescription} </p>
             </div>
-            <div className='homeInfo__container'>
+            <div className='homeInfo__container' id='projectServicesDep' >
                 <h2 className='homeInfo__title'> خدمات {currentProject === null?  '' :currentProject.detailedName}</h2>
                 <p className='homeInfo__paragraph'> يقدم الكمبوند مجموعة من الخدمات المتميزة وهي: </p>
                 <ul className='homeInfo__list' >
                     {currentProject === null?  '' :currentProject.services.split("\n").map((service,index)=>(<li key={index} className='homeInfo__point'> {service} </li>))}
                 </ul>
             </div>
-            <div className='homeInfo__container'>
+            <div className='homeInfo__container' id='projectPricesDep' >
                 <h2 className='homeInfo__title'> الأسعار  في {currentProject === null?  '' :currentProject.detailedName}</h2>
                 <p className='homeInfo__paragraph'> {currentProject === null?  '' :currentProject.prices} </p>
             </div>
-            <div className='homeInfo__container'>
+            <div className='homeInfo__container' id='projectPaymentDep'>
                 <h2 className='homeInfo__title'> أنظمة السداد والدفع في {currentProject === null?  '' :currentProject.detailedName}</h2>
                 <p className='homeInfo__paragraph'> منحت {currentProject === null?  '' :currentProject.projectDeveloperName} مجموعة من أنظمة السداد وهي: </p>
                 <ul className='homeInfo__list' >
                     {currentProject === null?  '' :currentProject.paymentOptions.split("\n").map((option,index)=>(<li key={index} className='homeInfo__point'> {option}  </li>))}
                 </ul>
             </div>
-            <div className='homeInfo__container'>
+            <div className='homeInfo__container' id='projectCompanyDep'>
                 <h2 className='homeInfo__title'> الشركة المالكة ل{currentProject === null?  '' :currentProject.detailedName}</h2>
                 <p className='homeInfo__paragraph'> {currentProject === null?  '' :currentProject.projectDeveloperInfo} </p>
             </div>
+
             {currentProject === null? <></>:
             <>
             {currentProject.developerLastProjects === '' ? <></> : 
-            <div className='homeInfo__container'>
+            <div className='homeInfo__container' id='projectCompanyProjectsDep'>
                 <h2 className='homeInfo__title'> أعمال {currentProject === null?  '' :currentProject.projectDeveloperName}</h2>
                 <p className='homeInfo__paragraph'> نفذت الشركة مجموعة من المشروعات المتميزة التي نالت على إعجاب العملاء، ومن هذه المشروعات: </p>
                 <ul className='homeInfo__list' >
@@ -157,7 +158,7 @@ function ProjectPage() {
             <>
             {currentProject.projectOwners === '' ? <></>  : 
             <>
-                <div className='homeInfo__container'>
+                <div className='homeInfo__container' id='projectCompanyOwnerDep'>
                     <h2 className='homeInfo__title'> ملاك {currentProject === null?  'data not available' :currentProject.projectDeveloperName}</h2>
                     <ul className='homeInfo__list' >
                         {currentProject === null?  'data not available' :currentProject.projectOwners.split("\n").map((owner,index)=>(<li key={index} className='homeInfo__point'> {owner} </li>))}
@@ -185,7 +186,7 @@ function ProjectPage() {
             }
             
             
-            <div className='homeInfo__container'>
+            <div className='homeInfo__container' id='projectSalesContactDep'>
                 <p className='homeInfo__paragraph'> يمكنك الأن التواصل مباشرة مع قسم إدارة المبيعات بالمشروع عن طريق   <a href={currentProject === null?  '' :currentProject.projectSalesWhatsLink} className='projectSalesLink'> الضغط هنا</a> </p>
             </div>
             <div className="projectPage__contactProject">

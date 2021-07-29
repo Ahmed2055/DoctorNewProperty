@@ -1,0 +1,15 @@
+.whatsButton {
+  background-color: rgb(2, 216, 2);
+  position: fixed;
+  border-radius: 50%;
+  width: 55px;
+  height: 55px;
+  bottom: 7vh;
+  left: 2vw;
+  box-shadow: -1px 6px 40px -6px rgba(0, 0, 0, 0.95);
+}
+.whatsButton__icon {
+  display: block;
+  margin: 9px 9px;
+  color: white;
+}
